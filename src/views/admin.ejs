@@ -16,10 +16,10 @@
     <div class="admin-panel">
         <h1 class="text-center my-4">Admin panelga xush kelibsiz!</h1>
         <div class="container">
-            <div class="row">
-                <div class="col-md-4  border-primary rounded-3 shadow py-4">
+            <div class="row justify-content-between">
+                <div class="col-md-4 rounded-3 shadow py-4 menu">
                     <h2>Menu</h2>
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion border-none" id="menu-accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -28,12 +28,13 @@
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
+                                data-bs-parent="#menu-accordion">
                                 <div class="accordion-body">
                                     <ul class="list-group">
-                                        <li class="list-group-item active" aria-current="true">Yangilik qo'shish</li>
-                                        <li class="list-group-item">Yangilikni tahrirlash</li>
-                                        <li class="list-group-item">Yangilikni o'chirish</li>
+                                        <li data-target="news_create" class="list-group-item active"
+                                            aria-current="true">Yangilik qo'shish</li>
+                                        <li data-target="news_update" class="list-group-item">Yangilikni o'chirish |
+                                            tahrirlash</li>
                                     </ul>
                                 </div>
                             </div>
@@ -46,7 +47,7 @@
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
+                                data-bs-parent="#menu-accordion">
                                 <div class="accordion-body">
                                     Bu yerda kurslarni o'zgartirish mumkin
                                 </div>
@@ -60,19 +61,63 @@
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
+                                data-bs-parent="#menu-accordion">
                                 <div class="accordion-body">
                                     Bu yerda o'qituvchilar ro'yxatini o'zgartirish mumkin
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- Option 1: Bootstrap Bundle with Popper -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-                    crossorigin="anonymous"></script>
+                <div class="col-md-8">
+                    <div class="info shadow p-4 rounded-3">
+                        <div id="news_create" class="info-item active">
+                            <form action="/news/create" method="post" encType="multipart/form-data" id="news_create_form">
+                                <div class="mb-3">
+                                    <input class="form-control visually-hidden" type="file" id="img_file"
+                                        name="cover_img">
+                                    <label for="img_file" class="w-100">
+                                        <img src="https://via.placeholder.com/728x300?text=Rasm+yuklash+uchun+shu+yerga+bosing"
+                                            alt="cover image" class="w-100" style="object-fit: cover; height: 300px;">
+                                    </label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="news_title" class="form-control" id="news_title"
+                                        placeholder="Yangilik nomini kiriting">
+                                    <label for="news_title">Yangilik nomi</label>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea name="news_body" class="form-control"
+                                        placeholder="Yangilik matnini kiriting" id="news_body"
+                                        style="height: 200px"></textarea>
+                                    <label for="news_body">Yangilik matni</label>
+                                </div>
+                                <div class="btn-group mt-3 ms-auto d-block w-50" role="group" aria-label="Basic outlined example">
+                                    <button type="button" class="btn btn-outline-primary">Tekshirish</button>
+                                    <button type="button" class="btn btn-outline-primary reset_form" data-target="news_create_form">Bekor qilish</button>
+                                    <button type="submit" class="btn btn-outline-primary active">Yangilikni qo'shish</button>
+                                  </div>
+                            </form>
+                        </div>
+                        <div id="news_update" class="info-item">
+                           
+                            <div class="card mb-3">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Card title</h5>
+                                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="/scripts/main.js"></script>
+            <!-- Option 1: Bootstrap Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>

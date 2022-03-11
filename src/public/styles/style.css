@@ -1,3 +1,39 @@
-.list-group-item{
+* {
+    box-sizing: border-box !important;
+}
+:root{
+    --whitish: rgba(236, 236, 236, 0.637);
+}
+body {
+    background-color: var(--whitish);
+}
+
+.list-group-item {
     cursor: pointer;
+}
+
+.menu {
+    background-color: rgb(30, 80, 95);
+    color: white;
+}
+
+.accordion-body {
+    background: var(--whitish);
+    color: black;
+}
+.accordion-button:not(.collapsed) {
+    color: rgb(30, 80, 95);
+}
+.accordion-item{
+    border: none;
+}
+.info {
+    margin-left: 15px;
+    background-color: whitesmoke;
+}
+.info-item{
+    display: none;
+}
+.info-item.active{
+    display: block;
 }
